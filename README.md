@@ -202,4 +202,4 @@ MIT License
 
 ---
 
-**Built with ❤️ by [hallucinaut](https://github.com/hallucinaut)**
+**Built with GPU by [hallucinaut](https://github.com/hallucinaut)**
