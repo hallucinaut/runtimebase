@@ -2,6 +2,7 @@
 package detect
 
 import (
+	"fmt"
 	"regexp"
 	"time"
 )
@@ -253,7 +254,7 @@ func GenerateReport(anomalies []AnomalyResult) string {
 	for i, anomaly := range anomalies {
 		report += "[" + string(rune(i+49)) + "] " + anomaly.Pattern + "\n"
 		report += "    Severity: " + anomaly.Severity + "\n"
-		report += "    Confidence: " + string(rune(int(anomaly.Confidence*100)+48)) + "%\n"
+		report += "    Confidence: " + fmt.Sprintf("%.0f%%", anomaly.Confidence*100) + "%\n"
 		report += "    Description: " + anomaly.Description + "\n"
 		report += "    Recommendation: " + anomaly.Recommendation + "\n\n"
 	}
