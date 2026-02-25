@@ -114,7 +114,7 @@ func AnalyzeBehavior(events []SystemEvent) map[string]interface{} {
 
 	for _, event := range events {
 		analysis["by_category"].(map[string]int)[event.Type]++
-		analysis["by_process"].(map[string]int][event.ProcessName]++
+		analysis["by_process"].(map[string]int)[event.ProcessName]++
 
 		timestamps = append(timestamps, event.Timestamp)
 	}

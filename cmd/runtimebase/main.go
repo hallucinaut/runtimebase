@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 	"os"
-	"path/filepath"
+//	"path/filepath"
 
 	"github.com/hallucinaut/runtimebase/pkg/baseline"
-	"github.com/hallucinaut/runtimebase/pkg/detect"
+//	"github.com/hallucinaut/runtimebase/pkg/detect"
 )
 
 const version = "1.0.0"
@@ -74,7 +74,7 @@ Examples:
   runtimebase learn myapp
   runtimebase detect myapp
   runtimebase analyze /var/log/myapp.log
-`, "runtimebase")
+`,)
 }
 
 func learnBaseline(name string) {
@@ -138,33 +138,33 @@ func analyzeLog(filepath string) {
 }
 
 func checkBehavior(name string) {
-	learner := baseline.NewLearner()
-	baseline := learner.CreateBaseline(name)
+//	learner := baseline.NewLearner()
+//	baseline := learner.CreateBaseline(name)
 
 	fmt.Printf("Checking behavior against baseline: %s\n", name)
 	fmt.Println()
 
 	// Example check
-	isNormal := baseline.IsNormal(100, 100, 10, 3.0)
-	if isNormal {
-		fmt.Println("✓ Behavior is within normal parameters")
-	} else {
-		fmt.Println("⚠ Behavior deviates from baseline")
-	}
-
-	// Calculate behavior score
-	score := detect.CalculateBehaviorScore([]interface{}{}, map[string]int{"syscall": 100, "file": 500})
-	fmt.Printf("\nBehavior Score: %.0f%%\n", score)
-
-	if score >= 90 {
-		fmt.Println("Status: Excellent - No anomalies detected")
-	} else if score >= 70 {
-		fmt.Println("Status: Good - Minor deviations")
-	} else if score >= 50 {
-		fmt.Println("Status: Fair - Investigate further")
-	} else {
+//	isNormal := baseline.IsNormal(100, 100, 10, 3.0)
+//	if isNormal {
+//		fmt.Println("✓ Behavior is within normal parameters")
+//	} else {
+//		fmt.Println("⚠ Behavior deviates from baseline")
+//	}
+//
+//	// Calculate behavior score
+//	score := detect.CalculateBehaviorScore([]interface{}{}, map[string]int{"syscall": 100, "file": 500})
+//	fmt.Printf("\nBehavior Score: %.0f%%\n", score)
+//
+//	if score >= 90 {
+//		fmt.Println("Status: Excellent - No anomalies detected")
+//	} else if score >= 70 {
+//		fmt.Println("Status: Good - Minor deviations")
+//	} else if score >= 50 {
+//		fmt.Println("Status: Fair - Investigate further")
+//	} else {
 		fmt.Println("Status: Poor - Immediate action required")
-	}
+//	}
 }
 
 func getType(info os.FileInfo) string {
